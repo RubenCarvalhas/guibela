@@ -122,3 +122,28 @@
   .mobile-menu li:nth-child(4) { font-size: 28px; }
   .mobile-menu li:nth-child(5) { font-size: 22px; }
 }
+
+@media(max-width: 488px){
+  .right-navbar img {
+    height: 60px;   
+    display: block; 
+    transition: none; 
+  }
+
+  .right-navbar img:hover {
+    transform: none;  
+  }
+
+  .nav-bar {
+    height: 80px;
+  }
+
+  .mobile-menu li{
+    margin-right: 40px;
+  }
+  .mobile-menu li:nth-child(1) { font-size: 40px; }
+  .mobile-menu li:nth-child(2) { font-size: 30px; }
+  .mobile-menu li:nth-child(3) { font-size: 28px; }
+  .mobile-menu li:nth-child(4) { font-size: 28px; }
+  .mobile-menu li:nth-child(5) { font-size: 22px; }
+}

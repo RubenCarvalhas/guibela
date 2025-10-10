@@ -18,8 +18,7 @@ export default function Navbar() {
         alt="Logo"
         width={200}  
         height={180}
-        unoptimized
-        style={{ width: '300px', height: '90px' }} 
+        unoptimized 
         />
 
 
