@@ -99,6 +99,46 @@ body{
   color: #555;
 }
 
+.hero-content {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.services-container {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.services-container h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.hero-slogan button {
+  padding: 16px 40px;
+  border-radius: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff;
+  background: linear-gradient(90deg, #00bcd4, #008c9e);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.hero-slogan button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(90deg, #008c9e, #00bcd4);
+}
+
+
+
 /* Responsivo para telas pequenas */
 @media (max-width: 768px) {
   .who-are-we {

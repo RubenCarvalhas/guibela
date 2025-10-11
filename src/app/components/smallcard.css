@@ -1,0 +1,32 @@
+.small-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  padding: 16px;
+  width: 128px;
+  height: 128px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.small-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+
+.small-card-icon svg {
+  width: 32px;
+  height: 32px;
+  color: #00bcd4;
+}
+
+.small-card-text {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+}
