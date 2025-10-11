@@ -1,0 +1,76 @@
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.big-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 300px;
+  min-height: 400px; /* altura mínima maior para cards com mais conteúdo */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.big-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.big-card-image {
+  width: 100%;
+  height: 180px; /* altura fixa */
+  overflow: hidden;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.big-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.big-card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #0039d4;
+  margin: 0 0 10px;
+}
+
+.big-card-text {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  flex-grow: 1; /* faz o conteúdo ocupar o espaço disponível */
+}
+
+.big-card-footer,
+.big-card-footer-link {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  width: 100%;
+  min-height: 40px; /* garante altura consistente mesmo sem footer */
+  text-decoration: none;
+}
+
+.big-card-footer-link {
+  color: #0039d4;
+  transition: color 0.2s ease;
+}
+
+.big-card-footer-link:hover {
+  color: #001d80;
+  text-decoration: underline;
+}
