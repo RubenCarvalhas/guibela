@@ -31,13 +31,12 @@
 .hamburger div {
   width: 30px;
   height: 3px;
-  background-color: #ffffff;
+  background-color: #0F03C4;
   transition: all 0.3s ease;
 }
 
 .hamburger.open div:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
-  background-color: #000000;
 }
 
 .hamburger.open div:nth-child(2) {
@@ -46,7 +45,6 @@
 
 .hamburger.open div:nth-child(3) {
   transform: rotate(-45deg) translate(6px, -6px);
-  background-color: #000000;
 }
 
 
