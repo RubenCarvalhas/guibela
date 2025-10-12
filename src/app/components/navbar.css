@@ -121,7 +121,7 @@
   .mobile-menu li:nth-child(5) { font-size: 22px; }
 }
 
-@media(max-width: 488px){
+@media(max-width: 560px){
   .right-navbar img {
     height: 60px;   
     display: block; 
@@ -137,11 +137,23 @@
   }
 
   .mobile-menu li{
-    margin-right: 40px;
+    margin-right: 60px;
   }
   .mobile-menu li:nth-child(1) { font-size: 40px; }
   .mobile-menu li:nth-child(2) { font-size: 30px; }
   .mobile-menu li:nth-child(3) { font-size: 28px; }
   .mobile-menu li:nth-child(4) { font-size: 28px; }
   .mobile-menu li:nth-child(5) { font-size: 22px; }
+}
+
+@media (max-width: 1440px) {
+  .mobile-menu {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .mobile-menu li {
+    margin-right: 40px;
+  }
 }

@@ -11,7 +11,7 @@ interface Review {
 interface SliderProps {
   id: string;
   reviews: Review[];
-  itemsToShow?: number; // quantos aparecerão ao mesmo tempo
+  itemsToShow?: number;
 }
 
 export default function Slider({ id, reviews, itemsToShow = 2 }: SliderProps) {
@@ -24,29 +24,31 @@ export default function Slider({ id, reviews, itemsToShow = 2 }: SliderProps) {
     return () => clearInterval(interval);
   }, [reviews.length]);
 
-  // calcula os reviews que aparecem atualmente
   const visibleReviews = [];
   for (let i = 0; i < itemsToShow; i++) {
     visibleReviews.push(reviews[(startIndex + i) % reviews.length]);
   }
 
   return (
-    <div id={id} className="slider-container">
-      <div className="slider-cards">
-        {visibleReviews.map((review, idx) => (
-          <motion.div
-            key={startIndex + idx}
-            className="review-card"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h4 className="review-name">{review.name}</h4>
-            <p className="review-text">{review.text}</p>
-          </motion.div>
-        ))}
+    <section id={id} className="slider-section">
+      <h2 className="slider-title">O que dizem os nossos clientes</h2>
+      <div className="slider-container">
+        <div className="slider-cards">
+          {visibleReviews.map((review, idx) => (
+            <motion.div
+              key={startIndex + idx}
+              className="review-card"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.1 }}
+            >
+              <h4 className="review-name">{review.name}</h4>
+              <p className="review-text">{review.text}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

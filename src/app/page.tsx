@@ -4,6 +4,7 @@ import Image from "next/image";
 import SmallCard from "./components/smallcard";
 import BigCard from "./components/bigcard";
 import Slider from "./components/slider"
+import Footer from "./components/footer"
 import { FaTshirt, FaSoap, FaCut } from "react-icons/fa";
 import { GiMonclerJacket } from "react-icons/gi";
 import { FaRug } from "react-icons/fa6";
@@ -109,6 +110,10 @@ const sliders = {
           reviews={sliders.reviews}
           itemsToShow={2} 
         />
+      </section>
+
+      <section>
+        <Footer />
       </section>
 
     </>
