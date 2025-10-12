@@ -19,6 +19,7 @@ export default function BigCard({
   footerText,
   footerLink,
 }: BigCardProps) {
+    
   return (
     <div className="big-card">
       {imageSrc && (

@@ -3,11 +3,25 @@ import ScrollButton from "./components/scrollbutton";
 import Image from "next/image";
 import SmallCard from "./components/smallcard";
 import BigCard from "./components/bigcard";
+import Slider from "./components/slider"
 import { FaTshirt, FaSoap, FaCut } from "react-icons/fa";
 import { GiMonclerJacket } from "react-icons/gi";
 import { FaRug } from "react-icons/fa6";
 
 export default function Home() {
+
+const sliders = {
+  id: "slider",
+  reviews: [
+    { name: "Maria", text: "Serviço excelente!" },
+    { name: "João", text: "Muito rápido e profissional." },
+    { name: "Ana", text: "Recomendo a todos!" },
+    { name: "Pedro", text: "Qualidade acima da média." },
+    { name: "André", text: "Roupa entregada com perfeiçao." },
+  ],
+};
+
+
   return (
     <>
       <div className="image-background">
@@ -88,6 +102,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="sliders-container">
+        <Slider
+          id={sliders.id}
+          reviews={sliders.reviews}
+          itemsToShow={2} 
+        />
+      </section>
+
     </>
   );
 }
