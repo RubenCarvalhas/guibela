@@ -8,6 +8,7 @@ import Footer from "./components/footer"
 import { FaTshirt, FaSoap, FaCut } from "react-icons/fa";
 import { GiMonclerJacket } from "react-icons/gi";
 import { FaRug } from "react-icons/fa6";
+import { use } from "react";
 
 export default function Home() {
 
@@ -114,6 +115,7 @@ const sliders = {
 
       <section>
         <Footer />
+        
       </section>
 
     </>

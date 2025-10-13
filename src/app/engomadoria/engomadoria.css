@@ -22,3 +22,10 @@
   color: #ffffff;
   font-family: 'Montserrat', sans-serif;
 }
+
+.title h1{
+  text-align: center;
+  margin-top: 50px;
+  font-size: 3rem;
+  margin-bottom: 50px;
+}
