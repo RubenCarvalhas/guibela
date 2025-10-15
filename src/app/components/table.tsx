@@ -27,8 +27,7 @@ export default function Table({ tableName, title }: TableProps) {
         .from(tableName)
         .select("*")
         .order("id", { ascending: true })
-
-      console.log(`Supabase fetch error for ${tableName}:`, error)
+        
       console.log(`Supabase fetch data for ${tableName}:`, tableData)
 
       if (tableData) setData(tableData)
