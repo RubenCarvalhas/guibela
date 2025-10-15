@@ -121,10 +121,11 @@
   .mobile-menu li:nth-child(5) { font-size: 22px; }
 }
 
+
 @media(max-width: 560px){
   .right-navbar img {
     height: 60px;   
-    display: block; 
+    display: none; 
     transition: none; 
   }
 
@@ -136,8 +137,12 @@
     height: 80px;
   }
 
+  .mobile-menu.open{
+    padding-left: 20px;
+  }
+
   .mobile-menu li{
-    margin-right: 60px;
+    margin-right: 80px;
   }
   .mobile-menu li:nth-child(1) { font-size: 40px; }
   .mobile-menu li:nth-child(2) { font-size: 30px; }

@@ -37,7 +37,7 @@ export default function Navbar() {
         </li>
         <li onClick={toggleMenu}>Lavagem/Limpeza a Seco</li>
         <li onClick={toggleMenu}><Link href="/engomadoria">Engomadoria</Link></li>
-        <li onClick={toggleMenu}>Costura</li>
+        <li onClick={toggleMenu}><Link href="/costura">Costura</Link></li>
         <li onClick={toggleMenu}>Normas</li>
       </ul>
     </div>

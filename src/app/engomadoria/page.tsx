@@ -7,27 +7,25 @@ import Table from "../components/table";
 
 export default function Engomadoria() {
   return (
-    <> 
-    <div className="hero-background">
-  <Navbar />
-  <div className="hero-content">
-    <h1>Engomadoria</h1>
-  </div>
-</div>
+    <>
+      <div className="hero-background">
+        <Navbar />
+        <div className="hero-content">
+          <h1>Engomadoria</h1>
+        </div>
+      </div>
 
-<div className="title">
-    <h1>Engomadoria</h1>
-</div>
+      <div className="title">
+        <h1>Engomadoria</h1>
+      </div>
 
-<section className="table-section">
-        <Table />
-</section>
+      <section className="table-section">
+        <Table tableName="Engomadoria" />
+      </section>
 
-<section>
-<Footer />
-</section>
-
-</>
-
+      <section>
+        <Footer />
+      </section>
+    </>
   );
 }

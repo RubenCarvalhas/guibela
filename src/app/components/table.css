@@ -10,17 +10,32 @@
 }
 
 thead {
-  background-color: #1a24ac;
+  background-color: #1a77ac;
   color: #ffffff;
 }
 
-.table th, td {
+.table th,
+.table td {
   padding: 1rem;
   text-align: left;
   border-bottom: 1px solid #e2e8f0;
   font-size: 1.5rem;
 }
 
-.tbody td{ 
-    font-size: 1.2rem;
+.tbody td {
+  font-size: 1.2rem;
+}
+
+/* Linhas alternadas */
+.tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.tbody tr:nth-child(even) {
+  background-color: #1a77ac;
+  color: #ffffff;
+}
+
+h2 {
+  text-align: center;
 }
