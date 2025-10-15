@@ -9,8 +9,17 @@ interface TableProps {
   title?: string
 }
 
+interface TableRow {
+  id: number
+  name?: string
+  quantity?: number
+  price?: number
+  discount?: boolean
+  discount_price?: number
+}
+
 export default function Table({ tableName, title }: TableProps) {
-  const [data, setData] = useState<any[] | null>(null)
+  const [data, setData] = useState<TableRow[] | null>(null)
 
   useEffect(() => {
     const fetchData = async () => {
