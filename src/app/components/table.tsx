@@ -25,7 +25,7 @@ export default function Table({ tableName, title, search }: TableProps) {
   const [data, setData] = useState<TableRow[] | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
 
-  // 🔄 Fetch data from Supabase
+  // Fetch data from Supabase
   useEffect(() => {
     const fetchData = async () => {
       const { data: tableData } = await supabase
@@ -39,7 +39,7 @@ export default function Table({ tableName, title, search }: TableProps) {
     fetchData();
   }, [tableName]);
 
-  // 🔁 Reset page when search changes
+  // Reset page when search changes
   useEffect(() => {
     setCurrentPage(0);
   }, [search]);
