@@ -5,7 +5,7 @@ import Footer from "../components/footer";
 import Table from "../components/table";
 import "./costura.css";
 
-export default function Costure() {
+export default function Costura() {
   return (
     <>
       <div className="hero-background">

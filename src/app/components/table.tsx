@@ -1,44 +1,66 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from "react"
-import { supabase } from "../../../lib/supabaseClient"
-import "./table.css"
+import { useEffect, useState } from "react";
+import { supabase } from "../../../lib/supabaseClient";
+import "./table.css";
 
 interface TableProps {
-  tableName: string
-  title?: string
+  tableName: string;
+  title?: string;
+  search?: string;
 }
 
 interface TableRow {
-  id: number
-  name?: string
-  quantity?: number
-  price?: number
-  discount?: boolean
-  discount_price?: number
+  id: number;
+  name?: string;
+  quantity?: number;
+  price?: number;
+  discount?: boolean;
+  discount_price?: number;
 }
 
-export default function Table({ tableName, title }: TableProps) {
-  const [data, setData] = useState<TableRow[] | null>(null)
+const ROWS_PER_PAGE = 20;
 
+export default function Table({ tableName, title, search }: TableProps) {
+  const [data, setData] = useState<TableRow[] | null>(null);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  // 🔄 Fetch data from Supabase
   useEffect(() => {
     const fetchData = async () => {
-      const { data: tableData, error } = await supabase
+      const { data: tableData } = await supabase
         .from(tableName)
         .select("*")
-        .order("id", { ascending: true })
-        
-      console.log(`Supabase fetch data for ${tableName}:`, tableData)
+        .order("id", { ascending: true });
 
-      if (tableData) setData(tableData)
-    }
+      if (tableData) setData(tableData);
+    };
 
-    fetchData()
-  }, [tableName])
+    fetchData();
+  }, [tableName]);
 
-  if (data === null) return <p>Carregando {title || tableName}...</p>
+  // 🔁 Reset page when search changes
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [search]);
 
-  const hasDiscount = data.some(item => item.discount)
+  if (data === null) return <p>Carregando {title || tableName}...</p>;
+
+  const hasDiscount = data.some(item => item.discount);
+
+  const filteredData = search
+    ? data.filter(item =>
+        item.name?.toLowerCase().includes(search.toLowerCase()) ||
+        item.quantity?.toString().includes(search) ||
+        item.price?.toString().includes(search)
+      )
+    : data;
+
+  const totalPages = Math.ceil(filteredData.length / ROWS_PER_PAGE);
+  const paginatedData = filteredData.slice(
+    currentPage * ROWS_PER_PAGE,
+    (currentPage + 1) * ROWS_PER_PAGE
+  );
 
   return (
     <div className="table-wrapper">
@@ -47,18 +69,16 @@ export default function Table({ tableName, title }: TableProps) {
         <thead>
           <tr>
             <th>#</th>
-            {/* Mostra "Nome" se existir campo name, senão "Quantidade" */}
-            {data[0]?.name !== undefined ? <th>Nome</th> : <th>Quantidade</th>}
+            {paginatedData[0]?.name !== undefined ? <th>Nome</th> : <th>Quantidade</th>}
             <th>Preço</th>
             {hasDiscount && <th>Promoção</th>}
             {hasDiscount && <th>Preço com Desconto</th>}
           </tr>
         </thead>
         <tbody className="tbody">
-          {data.map(item => (
+          {paginatedData.map(item => (
             <tr key={item.id}>
               <td>{item.id}</td>
-              {/* Mostra nome ou quantidade dependendo do campo disponível */}
               <td>
                 {item.name !== undefined
                   ? item.name
@@ -67,9 +87,13 @@ export default function Table({ tableName, title }: TableProps) {
                   : '—'}
               </td>
               <td>
-                {item.price != null
-                  ? `${item.price.toFixed(2)}€`
-                  : "Orçamento"}
+                {item.discount && item.discount_price != null ? (
+                  <span className="price-strike">
+                    {item.price != null ? `${item.price.toFixed(2)}€` : "—"}
+                  </span>
+                ) : (
+                  item.price != null ? `${item.price.toFixed(2)}€` : "Orçamento"
+                )}
               </td>
               {hasDiscount && item.discount ? (
                 <>
@@ -90,6 +114,25 @@ export default function Table({ tableName, title }: TableProps) {
           ))}
         </tbody>
       </table>
+
+      {/* Pagination Controls */}
+      {totalPages > 1 && (
+        <div className="pagination">
+          <button
+            onClick={() => setCurrentPage(p => Math.max(p - 1, 0))}
+            disabled={currentPage === 0}
+          >
+            ← Anterior
+          </button>
+          <span>Página {currentPage + 1} de {totalPages}</span>
+          <button
+            onClick={() => setCurrentPage(p => Math.min(p + 1, totalPages - 1))}
+            disabled={currentPage === totalPages - 1}
+          >
+            Próxima →
+          </button>
+        </div>
+      )}
     </div>
-  )
+  );
 }

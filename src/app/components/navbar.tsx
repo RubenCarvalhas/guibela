@@ -35,7 +35,7 @@ export default function Navbar() {
          <li onClick={toggleMenu}>
           <Link href="/">Guibela Lavandaria</Link>
         </li>
-        <li onClick={toggleMenu}>Lavagem/Limpeza a Seco</li>
+        <li onClick={toggleMenu}><Link href="/lavagem">Lavagem/Limpeza a Seco</Link></li>
         <li onClick={toggleMenu}><Link href="/engomadoria">Engomadoria</Link></li>
         <li onClick={toggleMenu}><Link href="/costura">Costura</Link></li>
         <li onClick={toggleMenu}>Normas</li>
